@@ -1,18 +1,16 @@
-import { useState, ChangeEvent } from "react";
+import { useState } from "react";
 // If something weird happens then look up ChangeEvent and see if it is doing what we want it to
 
-type AddToDoProps = {
+interface addTodo {
   addTodo: (newTodoTitle: string) => void;
 }
 
-
-
-export function AddTodo(props: AddToDoProps) {
+export function AddTodo(props: addTodo) {
   const { addTodo } = props;
 
   const [todoTitle, setTodoTitle] = useState("");
 
-  function onChange(e: ChangeEvent<HTMLInputElement>) {
+  function onChange(e: React.ChangeEvent<HTMLInputElement>) {
     setTodoTitle(e.target.value);
   }
 
